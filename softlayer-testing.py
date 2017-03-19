@@ -15,6 +15,9 @@ class SoftlayerHax:
     def getRoutingMethods(self):
         print self.LB.get_routing_methods()
 
+    def getDataCenters(self):
+        print self.client.call('Location', 'getViewableDatacenters')
+
 # Entry
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='usage: python softlayer-testing.py -user <SL_USER_ID> -api_key <SL_API_KEY>')
@@ -23,3 +26,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
     sl = SoftlayerHax(args.user, args.api_key)
     sl.getRoutingMethods()
+    sl.getDataCenters()
